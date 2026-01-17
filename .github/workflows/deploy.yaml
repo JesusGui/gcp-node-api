@@ -9,6 +9,7 @@ env:
   PROJECT_ID: gcp-curso-fullstack
   PROJECT_NUMBER: 448188991811
   REGION: us-central1
+  RUNTIME_SERVICE_ACCOUNT: cloud-run-runtime@gcp-curso-fullstack.iam.gserviceaccount.com
   SERVICE_NAME: gcp-node-api
   REPOSITORY: cloud-run-source-deploy
   IMAGE_PATH: gcp-node-api
@@ -56,4 +57,5 @@ jobs:
             --image ${{ env.REGION }}-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE_PATH:${{ github.sha }} \
             --region $REGION \
             --platform managed \
+            --service-account $RUNTIME_SERVICE_ACCOUNT \
             --allow-unauthenticated
