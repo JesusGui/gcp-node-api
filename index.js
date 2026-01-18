@@ -16,13 +16,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-  console.log({
+  console.log(JSON.stringify({
     message: "Health check called",
     service: "gcp-node-api",
     path: req.path,
     method: req.method,
     timestamp: new Date().toISOString(),
-  });
+  }));
 
   res.json({ status: "ok" });
 });
