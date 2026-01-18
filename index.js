@@ -24,11 +24,7 @@ app.get("/health", (req, res) => {
     timestamp: new Date().toISOString(),
   });
 
-  res.status(200).json({
-    status: "ok",
-    service: "gcp-node-api",
-    uptime: process.uptime(),
-  });
+  res.json({ status: "ok" });
 });
 
 
