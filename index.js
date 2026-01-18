@@ -27,6 +27,10 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+app.get("/error-test", (req, res) => {
+  res.status(500).json({ error: "test error" });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
