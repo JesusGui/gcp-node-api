@@ -15,6 +15,23 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/health", (req, res) => {
+  console.log({
+    message: "Health check called",
+    service: "gcp-node-api",
+    path: req.path,
+    method: req.method,
+    timestamp: new Date().toISOString(),
+  });
+
+  res.status(200).json({
+    status: "ok",
+    service: "gcp-node-api",
+    uptime: process.uptime(),
+  });
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
